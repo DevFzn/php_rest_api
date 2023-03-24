@@ -95,8 +95,11 @@ class conexion {
             return 0;
         }
     }
+
+    // Encriptar password
+    protected function encriptar($string){
+        return md5($string);
+    }
 }
+
 ?>
-
-
-

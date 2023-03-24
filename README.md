@@ -79,7 +79,7 @@ display_errors = On
 
 ----
 
-### Inicio del proyecto
+## Inicio del proyecto
 
 Crear y poblar base de datos, según archivo `./original/database/apirest.sql`.
 
@@ -96,3 +96,13 @@ Crear archivo de configuración en la ruta `./<projecto>/clases/conexion/config`
     }
 }
 ```
+
+#### Creación de token
+
+Combinación de 2 funciones de *php* para generar un *token* único en `<proyecto>/clases/auth.class.php`
+
+- Función [bin2hex](https://www.php.net/manual/en/function.bin2hex.php) devuelve
+un `string` *hexadecimal*.
+- Función [openssl_random_pseudo_bytes](https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php)
+
+
