@@ -76,6 +76,52 @@ class pacientes extends conexion{
             return 0;
         }
     }
+
+    public function put($json){
+        $_respuestas = new respuestas;
+        $datos = json_decode($json, true);
+        if (!isset($datos['pacienteid'])){
+            return $_respuestas->error_400();
+        } else {
+            $this->pacienteid = $datos['pacienteid'];
+            if (isset($datos['nombre'])){ $this->nombre = $datos['nombre']; }
+            if (isset($datos['dni'])){ $this->dni = $datos['dni']; }
+            if (isset($datos['correo'])){ $this->correo = $datos['correo']; }
+            if (isset($datos['telefono'])){ $this->telefono = $datos['telefono']; }
+            if (isset($datos['direccion'])){ $this->direccion = $datos['direccion']; }
+            if (isset($datos['codigo_postal'])){ $this->codigo_postal = $datos['codigo_postal']; }
+            if (isset($datos['genero'])){ $this->genero = $datos['genero']; }
+            if (isset($datos['fecha_nacimiento'])){ $this->fecha_nacimiento = $datos['fecha_nacimiento']; }
+
+            $resp = $this->modificarPaciente();
+            if ($resp){
+                $respuesta = $_respuestas->response;
+                $respuesta['result'] = array(
+                    //'filas_afectadas' => $resp,
+                    'pacienteid' => $this->pacienteid
+                );
+                return $respuesta;
+            } else {
+                return $_respuestas->error_500();
+            }
+        }
+    }
+
+    private function modificarPaciente(){
+        $query = "UPDATE $this->table SET Nombre = '$this->nombre',
+            Direccion = '$this->direccion', DNI = '$this->dni',
+            CodigoPostal = '$this->codigo_postal',
+            Telefono = '$this->telefono', Genero = '$this->genero',
+            FechaNacimiento = '$this->fecha_nacimiento',
+            Correo = '$this->correo' WHERE PacienteId = '$this->pacienteid'";
+        $resp = parent::nonQuery($query);
+        if ($resp >= 1){
+            return $resp;
+        } else {
+            return 0;
+        }
+    }
+
 }
 
 ?>
