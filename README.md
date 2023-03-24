@@ -105,4 +105,5 @@ Combinación de 2 funciones de *php* para generar un *token* único en `<proyect
 un `string` *hexadecimal*.
 - Función [openssl_random_pseudo_bytes](https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php)
 
+> [Metodos HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
