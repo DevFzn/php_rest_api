@@ -42,6 +42,14 @@ class respuestas{
         return $this->response;
     }
 
+    public function error_401($mensaje = "No autorizado"){
+        $this->response['status'] = "error";
+        $this->response['result'] = array(
+            "error_id" => "401",
+            "error_msg" => $mensaje
+        );
+        return $this->response;
+    }
 }
 
 ?>
