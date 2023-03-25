@@ -60,7 +60,7 @@ sudo systemctl restart apache2
 
 > ¿Como mostrar errores en php? [stackoverflow](https://stackoverflow.com/questions/1053424/how-do-i-get-php-errors-to-display).
 
-Agregar la sgte. linea en `.htaccess`
+Agregar la sgte. linea en archivo [.htaccess](./apirest_yt/.htaccess)
 
 ```apache
 php_flag display_errors 1
@@ -81,7 +81,8 @@ display_errors = On
 
 ## Inicio del proyecto
 
-Crear y poblar base de datos, según archivo `./original/database/apirest.sql`.
+Crear y poblar base de datos, según [archivo sql](./original/database/apirest.sql)
+en `./original/database/apirest.sql`.
 
 Crear archivo de configuración en la ruta `./<projecto>/clases/conexion/config`.
 
@@ -99,10 +100,11 @@ Crear archivo de configuración en la ruta `./<projecto>/clases/conexion/config`
 
 #### Creación de token
 
-Combinación de 2 funciones de *php* para generar un *token* único en `<proyecto>/clases/auth.class.php`
+Combinación de 2 funciones de *php* para generar un *token* único en [archivo](./apirest_yt/clases/auth.class.php)
+`<proyecto>/clases/auth.class.php`.
 
 - Función [bin2hex](https://www.php.net/manual/en/function.bin2hex.php) devuelve
-un `string` *hexadecimal*.
+un *string hexadecimal*.
 - Función [openssl_random_pseudo_bytes](https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php).
 
 > [Metodos HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)

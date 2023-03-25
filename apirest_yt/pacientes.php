@@ -51,7 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] == "GET"){
     echo json_encode($datosArray);
 
 } else if ($_SERVER['REQUEST_METHOD'] == "DELETE"){
-    echo "hola DELETE";
+
+    // recepción de datos
+    $postBody = file_get_contents("php://input");
+    // envio de datos al manejador
+    $datosArray = $_pacientes->delete($postBody);
+    // devolucion de respuesta
+    if(isset($datosArray["result"]["error_id"])){
+        $responseCode = $datosArray["result"]["error_id"];
+        http_response_code($responseCode);
+    }else{
+        http_response_code(200);
+    }
+    echo json_encode($datosArray);
 
 } else {
     $datosArray = $_respuestas->error_405();
