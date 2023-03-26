@@ -3,7 +3,6 @@ require_once 'conexion/conexion.php';
 require_once 'clases/respuestas.class.php';
 
 class pacientes extends conexion{
-
     private $table = "pacientes";
     private $pacienteid = "";
     private $dni = "";
@@ -74,7 +73,6 @@ class pacientes extends conexion{
                 return $_respuestas->error_401("Token inválido o caducado");
             }
         }
-
     }
 
     private function insertarPaciente(){
