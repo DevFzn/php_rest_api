@@ -1,5 +1,12 @@
 # Apuntes PHP REST API
 
+Proyecto realizado con fines didácticos, con el propósito de comprender la
+creación y funcionamiento de una API básica utilizando **Php** y **Apache**.
+Además de servir de introducción los mismos.
+
+Las clases, metodos y funciones creadas dentro de este proyecto cumplen este
+propósito. No estan diseñadas para correr en un entorno de producción.
+
 ### Requerimientos
 
 [MariaDB](https://mariadb.com/docs/), [Apache](https://httpd.apache.org/docs/)
@@ -36,7 +43,9 @@ cd /var/www/
 sudo ln -s $HOME/projects/apirest html
 ```
 
-`/etc/apache2/apache2.conf`
+Editar archivo de configuración de apache `sudoedit /etc/apache2/apache2.conf`
+
+Agregar:
 
 ```apache
 <Directory /var/www/>
@@ -109,3 +118,15 @@ un *string hexadecimal*.
 
 > [Metodos HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
+#### Desactivar tokens
+
+Cron Job para cambiar estado de tokens a ***Inactivo***
+
+Agregar tarea: `crontab -e`
+
+ej. Ejecutar tarea cada 5 minutos.
+
+```sh
+# m h  dom mon dow   command
+*/5 *   *   *   *    curl localhost/php_apirest/apirest_yt/cron/actualizar_tokens &>/dev/null
+```

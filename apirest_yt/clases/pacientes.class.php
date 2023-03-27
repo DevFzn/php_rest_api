@@ -200,17 +200,18 @@ class pacientes extends conexion{
         }
     }
 
-    private function actualizarToken($tokenid){
-        $date = date("Y m d H:i");
-        $query = "UPDATE usuarios_token SET Fecha = '$date'
-                  WHERE TokenId = '$tokenid'";
-        $resp = parent::nonQuery($query);
-        if ($resp >= 1){
-            return $resp;
-        } else {
-            return 0;
-        }
-    }
+    // Sin implementación
+    //private function actualizarToken($tokenid){
+    //    $date = date("Y m d H:i");
+    //    $query = "UPDATE usuarios_token SET Fecha = '$date'
+    //              WHERE TokenId = '$tokenid'";
+    //    $resp = parent::nonQuery($query);
+    //    if ($resp >= 1){
+    //        return $resp;
+    //    } else {
+    //        return 0;
+    //    }
+    //}
 }
 
 ?>
